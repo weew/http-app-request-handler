@@ -18,7 +18,7 @@
 
 ## Introduction
 
-This is a request handling component that is meant to be used together with the [weew/php-app-http](https://github.com/weew/php-app-http) package.
+This is a request handling component that is meant to be used together with the [weew/php-app-http](https://github.com/weew/php-app-http) package. It uses the [weew/php-router](https://github.com/weew/php-router) package for routing and the [weew/php-router-routes-invoker-container-aware](https://github.com/weew/php-router-routes-invoker-container-aware) package for routes invocation.
 
 ## Usage
 
