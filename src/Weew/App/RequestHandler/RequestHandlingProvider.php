@@ -4,7 +4,7 @@ namespace Weew\App\RequestHandler;
 
 use Weew\Container\IContainer;
 use Weew\Eventer\IEventer;
-use Weew\App\Http\Events\App\HandleHttpRequestEvent;
+use Weew\App\Http\Events\HandleHttpRequestEvent;
 use Weew\Router\ContainerAware\Router as ContainerAwareRouter;
 use Weew\Router\Invoker\ContainerAware\IRoutesInvoker;
 use Weew\Router\Invoker\ContainerAware\RoutesInvoker;
