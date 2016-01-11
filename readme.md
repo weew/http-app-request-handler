@@ -18,7 +18,7 @@
 
 ## Introduction
 
-This is a request handling extension that is used in the [weew/php-app-http](https://github.com/weew/php-app-http) package.
+This is a request handling component that is meant to be used together with the [weew/php-app-http](https://github.com/weew/php-app-http) package.
 
 ## Usage
 
