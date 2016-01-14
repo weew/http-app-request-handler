@@ -64,7 +64,7 @@ class RequestHandlingProvider {
      *
      * @param HandleHttpRequestEvent $event
      */
-    public function handleHttpRequestEvent(HandleHttpRequestEvent $event) {
+    public function handleHandleHttpRequestEvent(HandleHttpRequestEvent $event) {
         $event->setResponse(
             $this->requestHandler->handle($event->getRequest())
         );
@@ -85,7 +85,7 @@ class RequestHandlingProvider {
      */
     protected function setUpEvents() {
         $this->eventer->subscribe(
-            HandleHttpRequestEvent::class, [$this, 'handleHttpRequestEvent']
+            HandleHttpRequestEvent::class, [$this, 'handleHandleHttpRequestEvent']
         );
     }
 }
