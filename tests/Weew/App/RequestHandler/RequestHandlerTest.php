@@ -5,15 +5,11 @@ namespace Tests\Weew\App\Components\RequestHandler;
 use PHPUnit_Framework_TestCase;
 use Weew\Container\Container;
 use Weew\App\RequestHandler\RequestHandler;
-use Weew\App\RequestHandler\Exceptions\HttpResponseException;
 use Weew\Http\HttpRequest;
-use Weew\Http\HttpRequestMethod;
-use Weew\Http\HttpResponse;
 use Weew\Http\HttpStatusCode;
 use Weew\Http\IHttpResponse;
 use Weew\Router\ContainerAware\Router;
 use Weew\Router\Invoker\ContainerAware\RoutesInvoker;
-use Weew\Url\Url;
 
 class RequestHandlerTest extends PHPUnit_Framework_TestCase {
     public function test_create() {
@@ -31,24 +27,5 @@ class RequestHandlerTest extends PHPUnit_Framework_TestCase {
         $response = $handler->handle(new HttpRequest());
         $this->assertTrue($response instanceof IHttpResponse);
         $this->assertTrue($response->getStatusCode() === HttpStatusCode::NOT_FOUND);
-    }
-
-    public function test_handle_http_response_exception() {
-        $container = new Container();
-        $router = new Router($container);
-        $handler = new RequestHandler(
-            $router, new RoutesInvoker($container)
-        );
-
-        $response = new HttpResponse();
-
-        $router->get('/', function() use ($response) {
-            throw new HttpResponseException($response);
-        });
-
-        $newResponse = $handler->handle(
-            new HttpRequest(HttpRequestMethod::GET, new Url('/'))
-        );
-        $this->assertTrue($newResponse === $response);
     }
 }
