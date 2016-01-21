@@ -46,7 +46,7 @@ class RequestHandler implements IRequestHandler {
 
             return $this->routesInvoker->invoke($route);
         } catch (HttpResponseException $ex) {
-            return $ex->getResponse();
+            return $ex->getHttpResponse();
         }
     }
 }
