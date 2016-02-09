@@ -2,6 +2,7 @@
 
 namespace Weew\App\RequestHandler;
 
+use Weew\Config\IConfig;
 use Weew\Container\IContainer;
 use Weew\Eventer\IEventer;
 use Weew\App\Http\Events\HandleHttpRequestEvent;
@@ -10,6 +11,8 @@ use Weew\Router\Invoker\ContainerAware\IRoutesInvoker;
 use Weew\Router\Invoker\ContainerAware\RoutesInvoker;
 use Weew\Router\IRouter;
 use Weew\Router\Router;
+use Weew\RouterConfigurator\IRouterConfigurator;
+use Weew\RouterConfigurator\RouterConfigurator;
 
 class RequestHandlingProvider {
     /**
@@ -23,9 +26,19 @@ class RequestHandlingProvider {
     protected $eventer;
 
     /**
+     * @var IConfig
+     */
+    protected $config;
+
+    /**
      * @var IRouter
      */
     protected $router;
+
+    /**
+     * @var IRouterConfigurator
+     */
+    protected $routerConfigurator;
 
     /**
      * @var IRoutesInvoker
@@ -40,22 +53,29 @@ class RequestHandlingProvider {
     /**
      * @param IContainer $container
      * @param IEventer $eventer
+     * @param IConfig $config
      * @param ContainerAwareRouter $router
+     * @param RouterConfigurator $routerConfigurator
      * @param RoutesInvoker $routesInvoker
      */
     public function boot(
         IContainer $container,
         IEventer $eventer,
+        IConfig $config,
         ContainerAwareRouter $router,
+        RouterConfigurator $routerConfigurator,
         RoutesInvoker $routesInvoker
     ) {
         $this->container = $container;
+        $this->config = $config;
         $this->eventer = $eventer;
         $this->router = $router;
+        $this->routerConfigurator = $routerConfigurator;
         $this->routesInvoker = $routesInvoker;
         $this->requestHandler = new RequestHandler($router, $routesInvoker);
 
         $this->shareInstancesInContainer();
+        $this->loadRoutesFromConfig();
         $this->setUpEvents();
     }
 
@@ -78,6 +98,14 @@ class RequestHandlingProvider {
         $this->container->set(
             [RequestHandler::class, IRequestHandler::class], $this->requestHandler
         );
+    }
+
+    /**
+     * Load routes from config.
+     */
+    protected function loadRoutesFromConfig() {
+        $config = $this->config->get('routing', []);
+        $this->routerConfigurator->processConfig($this->router, $config);
     }
 
     /**
