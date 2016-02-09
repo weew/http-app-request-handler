@@ -104,7 +104,7 @@ class RequestHandlingProvider {
      * Load routes from config.
      */
     protected function loadRoutesFromConfig() {
-        $config = $this->config->get('routing', []);
+        $config = $this->config->getRaw('routing', []);
         $this->routerConfigurator->processConfig($this->router, $config);
     }
 
