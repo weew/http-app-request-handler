@@ -1,5 +1,5 @@
 {
-    "name": "weew/php-app-http-request-handler",
+    "name": "weew/php-http-app-request-handler",
     "description": "Request handling extension for the weew/php-app package.",
     "license": "MIT",
     "authors": [
@@ -19,7 +19,7 @@
         }
     },
     "require": {
-        "weew/php-app-http": "^1.4",
+        "weew/php-http-app": "^2.0",
         "weew/php-router-container-aware": "^1.0",
         "weew/php-router-routes-invoker-container-aware": "^1.3",
         "weew/php-router-configurator": "^1.0"

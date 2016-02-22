@@ -3,9 +3,9 @@
 namespace Tests\Weew\App\Components\RequestHandler;
 
 use PHPUnit_Framework_TestCase;
-use Weew\App\Http\Exceptions\HttpResponseException;
+use Weew\HttpApp\Exceptions\HttpResponseException;
 use Weew\Container\Container;
-use Weew\App\RequestHandler\RequestHandler;
+use Weew\HttpApp\RequestHandler\RequestHandler;
 use Weew\Http\HttpRequest;
 use Weew\Http\HttpRequestMethod;
 use Weew\Http\HttpResponse;

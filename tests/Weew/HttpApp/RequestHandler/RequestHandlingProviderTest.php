@@ -3,9 +3,9 @@
 namespace Tests\Weew\App\Components\RequestHandler;
 
 use PHPUnit_Framework_TestCase;
-use Weew\App\Http\HttpApp;
-use Weew\App\RequestHandler\IRequestHandler;
-use Weew\App\RequestHandler\RequestHandlingProvider;
+use Weew\HttpApp\HttpApp;
+use Weew\HttpApp\RequestHandler\IRequestHandler;
+use Weew\HttpApp\RequestHandler\RequestHandlingProvider;
 use Weew\Http\HttpRequest;
 use Weew\Router\IRouter;
 

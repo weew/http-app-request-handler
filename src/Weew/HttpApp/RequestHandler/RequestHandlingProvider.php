@@ -1,11 +1,11 @@
 <?php
 
-namespace Weew\App\RequestHandler;
+namespace Weew\HttpApp\RequestHandler;
 
 use Weew\Config\IConfig;
 use Weew\Container\IContainer;
 use Weew\Eventer\IEventer;
-use Weew\App\Http\Events\HandleHttpRequestEvent;
+use Weew\HttpApp\Events\HandleHttpRequestEvent;
 use Weew\Router\ContainerAware\Router as ContainerAwareRouter;
 use Weew\Router\Invoker\ContainerAware\IRoutesInvoker;
 use Weew\Router\Invoker\ContainerAware\RoutesInvoker;

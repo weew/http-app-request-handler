@@ -1,8 +1,8 @@
 <?php
 
-namespace Weew\App\RequestHandler;
+namespace Weew\HttpApp\RequestHandler;
 
-use Weew\App\Http\Exceptions\HttpResponseException;
+use Weew\HttpApp\Exceptions\HttpResponseException;
 use Weew\Http\IHttpRequest;
 use Weew\Http\IHttpResponse;
 use Weew\Router\Invoker\ContainerAware\IRoutesInvoker;
