@@ -22,7 +22,7 @@ This is a request handling component that is meant to be used together with the 
 
 ## Usage
 
-To enable this provider simply register it on the kernel.
+Simply register this provider on the kernel.
 
 ```php
 $app->getKernel()->addProviders([
