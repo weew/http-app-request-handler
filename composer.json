@@ -1,6 +1,6 @@
 {
     "name": "weew/php-http-app-request-handler",
-    "description": "Request handling extension for the weew/php-app package.",
+    "description": "Request handling extension for the weew/php-http-app package.",
     "license": "MIT",
     "authors": [
         {
