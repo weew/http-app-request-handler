@@ -2,7 +2,6 @@
 
 namespace Weew\HttpApp\RequestHandler;
 
-use Weew\HttpApp\Exceptions\HttpResponseException;
 use Weew\Http\IHttpRequest;
 use Weew\Http\IHttpResponse;
 use Weew\Router\Invoker\ContainerAware\IRoutesInvoker;
@@ -39,14 +38,10 @@ class RequestHandler implements IRequestHandler {
      * @return IHttpResponse
      */
     public function handle(IHttpRequest $request) {
-        try {
-            $route = $this->router->match(
-                $request->getMethod(), $request->getUrl()
-            );
+        $route = $this->router->match(
+            $request->getMethod(), $request->getUrl()
+        );
 
-            return $this->routesInvoker->invoke($route);
-        } catch (HttpResponseException $ex) {
-            return $ex->getHttpResponse();
-        }
+        return $this->routesInvoker->invoke($route);
     }
 }
