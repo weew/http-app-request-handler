@@ -3,22 +3,24 @@
 namespace Tests\Weew\App\Components\RequestHandler;
 
 use PHPUnit_Framework_TestCase;
+use Weew\Config\Config;
 use Weew\HttpApp\HttpApp;
 use Weew\HttpApp\RequestHandler\IRequestHandler;
-use Weew\HttpApp\RequestHandler\RequestHandlingProvider;
+use Weew\HttpApp\RequestHandler\RequestHandlerProvider;
 use Weew\Http\HttpRequest;
 use Weew\Router\IRouter;
 
-class RequestHandlingProviderTest extends PHPUnit_Framework_TestCase {
+class RequestHandlerProviderTest extends PHPUnit_Framework_TestCase {
     public function test_create() {
         $app = new HttpApp();
-        $config = $app->loadConfig();
+        $config = new Config();
         $config->set('routing', [
             'routes' => [
                 ['method' => 'GET', 'path' => '/foo', 'action' => 'foo']
             ]
         ]);
-        $app->getKernel()->addProvider(RequestHandlingProvider::class);
+        $app->getConfigLoader()->addConfig($config);
+        $app->getKernel()->addProvider(RequestHandlerProvider::class);
         $app->handle(new HttpRequest());
 
         /** @var IRouter $router */

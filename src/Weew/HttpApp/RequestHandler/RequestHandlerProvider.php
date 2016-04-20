@@ -14,7 +14,7 @@ use Weew\Router\Router;
 use Weew\RouterConfigurator\IRouterConfigurator;
 use Weew\RouterConfigurator\RouterConfigurator;
 
-class RequestHandlingProvider {
+class RequestHandlerProvider {
     /**
      * @var IContainer
      */

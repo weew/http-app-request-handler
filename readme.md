@@ -26,6 +26,6 @@ Simply register this provider on the kernel.
 
 ```php
 $app->getKernel()->addProviders([
-    RequestHandlingProvider::class,
+    RequestHandlerProvider::class,
 ]);
 ```
