@@ -21,7 +21,7 @@ class RequestHandlerProviderTest extends PHPUnit_Framework_TestCase {
         ]);
         $app->getConfigLoader()->addConfig($config);
         $app->getKernel()->addProvider(RequestHandlerProvider::class);
-        $app->handle(new HttpRequest());
+        $app->handleRequest(new HttpRequest());
 
         /** @var IRouter $router */
         $router = $app->getContainer()->get(IRouter::class);

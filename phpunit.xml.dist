@@ -10,7 +10,7 @@
          syntaxCheck="false"
          bootstrap="tests/bootstrap.php">
     <testsuites>
-        <testsuite name="php-http-app-request-handler">
+        <testsuite name="http-app-request-handler">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>
